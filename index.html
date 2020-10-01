@@ -7,39 +7,43 @@
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
 </head>
 <style>
-    body{
+    main-div{
         height: 100vh;
         display: grid;
         place-items: center;
         font-family: 'Josefin Sans', sans-serif;
         background-color: #d2691e;
     }
-    #hexcode{
+    .main{
         padding:12px 25px;
-        background:cornsilk;
+        background:#fff;
         font-weight: bold;
     }
 </style>
 <body>
-    <div id="hexcode">#d2691e</div>
+    <div class="main-div"></div>
+    <div class="main">Background Color of body: <span id="hexcode">#d2691e</span></div>
+    <div class="main">Background Color of button : <span id="hexcode2">#ffffff</span> </div>
     <script>
-        const body = document.querySelector('body');
+        const mainDiv = document.querySelector('.main-div');
+        const main = document.querySelector('.main');
         const hexcode = document.querySelector('#hexcode');
+        const hexcode2 = document.querySelector('#hexcode2');
         const hexValues = [0,1,2,3,4,5,6,7,8,9,"A","B","C","D","E","F"];
-        body.addEventListener('click',()=>{
+        body.addEventListener('mouseup',()=>{
 
         let hex = "#";
         let hex2 = "#";
         for(i=0;i<6;i++){
             const hexindex = Math.floor(Math.random()*hexValues.length);
-            const hexindex2 = Math.floor(Math.random()*hexValues.length-1);
+            const hexindex2 = Math.ceil(Math.random()*hexValues.length-1);
             hex += hexValues[hexindex];
             hex2 += hexValues[hexindex2];
         }
         hexcode.innerHTML = hex
-        body.style.backgroundColor = hex
-        hexcode.style.backgroundColor = hex2
-        console.log(hex)
+        hexcode2.innerHTML = hex2
+        mainDiv.style.backgroundColor = hex
+        main.style.backgroundColor = hex2
         })
     </script>
 </body>
