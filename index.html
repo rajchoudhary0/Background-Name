@@ -5,25 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<style>
-    body{
-        display:grid;
-        height: 100vh;
-        place-items: center;
-        background: rgb(14, 187, 115);
-    }
-    .change{
-        text-decoration: none;
-        border: 2px solid black;
-        color: black;
-        padding: 15px 32px;
-        font-size: 20px;
-        cursor: pointer;
-    }
-</style>
-<body>
+<body style="height: 100vh">
     
-    <!-- <button class="change">Click</button> -->
-    <script src="script.js"></script>
+    <script>
+        const body = document.querySelector('body');
+        const hexValues = [0,1,2,3,4,5,6,7,8,9,"A","B","C","D","E","F"];
+        body.addEventListener('click',()=>{
+
+        let hex = "#";
+        for(i=0;i<6;i++){
+            const hexindex = Math.floor(Math.random()*hexValues.length);
+            hex += hexValues[hexindex];
+        }
+        body.style.backgroundColor = hex
+        console.log(hex)
+        })
+    </script>
 </body>
 </html>
