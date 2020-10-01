@@ -3,21 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Made By Raj</title>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
 </head>
-<body style="height: 100vh">
-    
+<style>
+    body{
+        height: 100vh;
+        display: grid;
+        place-items: center;
+        font-family: 'Josefin Sans', sans-serif;
+        background-color: #d2691e;
+    }
+    #hexcode{
+        padding:12px 25px;
+        background:cornsilk;
+        font-weight: bold;
+    }
+</style>
+<body>
+    <div id="hexcode">#d2691e</div>
     <script>
         const body = document.querySelector('body');
+        const hexcode = document.querySelector('#hexcode');
         const hexValues = [0,1,2,3,4,5,6,7,8,9,"A","B","C","D","E","F"];
         body.addEventListener('click',()=>{
 
         let hex = "#";
+        let hex2 = "#";
         for(i=0;i<6;i++){
             const hexindex = Math.floor(Math.random()*hexValues.length);
+            const hexindex2 = Math.floor(Math.random()*hexValues.length-1);
             hex += hexValues[hexindex];
+            hex2 += hexValues[hexindex2];
         }
+        hexcode.innerHTML = hex
         body.style.backgroundColor = hex
+        hexcode.style.backgroundColor = hex2
         console.log(hex)
         })
     </script>
