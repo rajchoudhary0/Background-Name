@@ -7,43 +7,54 @@
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
 </head>
 <style>
-    main-div{
+    *{
+        padding: 0;
+        margin: 0;
+    }
+    .main-div{
         height: 100vh;
         display: grid;
         place-items: center;
         font-family: 'Josefin Sans', sans-serif;
         background-color: #d2691e;
     }
-    .main{
+    .main, .main2{
         padding:12px 25px;
         background:#fff;
         font-weight: bold;
     }
 </style>
 <body>
-    <div class="main-div"></div>
+    <div class="main-div">
     <div class="main">Background Color of body: <span id="hexcode">#d2691e</span></div>
-    <div class="main">Background Color of button : <span id="hexcode2">#ffffff</span> </div>
+    <div class="main2">Background Color of button : <span id="hexcode2">#ffffff</span> </div>
+    </div>
     <script>
         const mainDiv = document.querySelector('.main-div');
         const main = document.querySelector('.main');
+        const main2 = document.querySelector('.main2');
         const hexcode = document.querySelector('#hexcode');
         const hexcode2 = document.querySelector('#hexcode2');
+        const hexcode3 = document.querySelector('#hexcode3');
         const hexValues = [0,1,2,3,4,5,6,7,8,9,"A","B","C","D","E","F"];
-        body.addEventListener('mouseup',()=>{
+        mainDiv.addEventListener('click',()=>{
 
         let hex = "#";
         let hex2 = "#";
+        let hex3 = "#";
         for(i=0;i<6;i++){
             const hexindex = Math.floor(Math.random()*hexValues.length);
             const hexindex2 = Math.ceil(Math.random()*hexValues.length-1);
+            const hexindex3 = Math.ceil(Math.random()*hexValues.length-3)+3;
             hex += hexValues[hexindex];
             hex2 += hexValues[hexindex2];
+            hex3 += hexValues[hexindex3];
         }
         hexcode.innerHTML = hex
         hexcode2.innerHTML = hex2
         mainDiv.style.backgroundColor = hex
         main.style.backgroundColor = hex2
+        main2.style.backgroundColor = hex3
         })
     </script>
 </body>
